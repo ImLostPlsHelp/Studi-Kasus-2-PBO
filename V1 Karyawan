@@ -1,0 +1,87 @@
+package StudiKasusPBO2.StudiKasusNo1;
+import java.util.*;
+public class MainKaryawan {
+    public static void main(String[] args) {
+        LinkedList<Karyawan> linkedList = new LinkedList<Karyawan>();
+        Scanner input = new Scanner(System.in);
+        System.out.print("Tuliskan berapa Karyawan yang bekerja pada hari ini:\n");
+        int jumlah = input.nextInt();
+        input.nextLine();
+        Karyawan[] dataKaryawan = new Karyawan[jumlah];
+        
+            
+        for(int i = 0; i < jumlah; i++) {
+            Karyawan karyawan = new Karyawan();
+            System.out.print("Nama: ");
+            String inputName = input.nextLine();
+            karyawan.setName(inputName);
+            System.out.print("Usia: ");
+            int inputUsia = input.nextInt();
+            input.nextLine();
+            System.out.print("Email: ");
+            String inputEmail = input.nextLine();
+            karyawan.setEmail(inputEmail);
+            System.out.print("Alamat: ");
+            String inputAlamat = input.nextLine();
+            karyawan.setAlamat(inputAlamat);
+            System.out.print("Nomor Telepon Karyawan: ");
+            String inputNumber = input.nextLine();
+            karyawan.setNumber(inputNumber);
+            System.out.print("Jenis Kelamin: ");
+            String inputJk = input.nextLine();
+            karyawan.setGender(inputJk);
+            System.out.print("Jadwal Kerja: ");
+            String inputJadwal = input.nextLine();
+            karyawan.setJadwal(inputJadwal);
+            System.out.println("Kategori/Divisi: ");
+            System.out.println("1). Dokter Hewan");
+            System.out.println("2). Admin");
+            System.out.println("3). Groomer");
+            System.out.print("Pilih kategori(Ketikkan pilihan anda)\t: ");
+            String inputKategori = input.nextLine();
+            if(inputKategori.equalsIgnoreCase("Dokter Hewan")) {
+                System.out.print("Bidang Spesialis\t: ");
+                String bidang = input.nextLine();
+                System.out.print("Sertifikasi\t: ");
+                String sertifikasi = input.nextLine();
+                Karyawan dokter = new DokterHewan(inputName, inputUsia, inputEmail, inputAlamat, inputAlamat, inputJk, inputNumber, inputKategori, bidang, sertifikasi);
+                dataKaryawan[i] = dokter;
+                linkedList.add(dokter);
+            }
+            else if(inputKategori.equalsIgnoreCase("Groomer")){
+                System.out.print("Lokasi Kantor\t: ");
+                String inputLokasi = input.nextLine(); 
+                System.out.print("Hewan Keahlian\t: ");
+                String hewanKeahlian = input.nextLine();
+                Karyawan groomer = new Groomer(inputName, inputUsia, inputEmail, inputAlamat, inputNumber, inputJk, inputJk, inputKategori, inputLokasi, hewanKeahlian);
+                dataKaryawan[i] = groomer;
+                linkedList.add(groomer);
+            }
+            else if(inputKategori.equalsIgnoreCase("Admin")){
+                System.out.print("Department\t: ");
+                String inputDept = input.nextLine();
+                System.out.print("Rank Admin\t: ");
+                String inputRank = input.nextLine();
+                Karyawan admin = new Admin(inputName, inputUsia, inputEmail, inputAlamat, inputNumber, inputJk, inputJadwal, inputKategori, inputDept, inputRank);
+                dataKaryawan[i] = admin;
+                linkedList.add(admin);
+            } else {
+                Karyawan karyawanDefault = new Karyawan(inputName, inputUsia, inputEmail, inputAlamat, inputNumber, inputJk, inputJadwal, inputKategori);
+                linkedList.add(karyawanDefault);
+            }
+            System.out.println();
+        }
+
+        
+        for(int i = 0; i < linkedList.size(); i++) {
+            Karyawan karyawan = linkedList.get(i);
+            System.out.println("*****************************************************");
+            karyawan.printDataKaryawan();
+            karyawan.infoTambahan();
+            System.out.println("*****************************************************");
+            karyawan.bekerja();
+            System.out.println();
+        }
+    
+    }
+}
