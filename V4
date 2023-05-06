@@ -1,0 +1,262 @@
+package StudiKasusPBO2.StudiKasusNo1Hewan;
+import java.util.*;
+
+public class MainHewan {
+    public static void main(String[] args) {
+        LinkedList<Hewan> linkedList = new LinkedList<Hewan>();
+        Scanner in = new Scanner(System.in);
+        System.out.println("Tuliskan jumlah hewan yang masuk hari ini:");
+        int jmlh = in.nextInt();
+        in.nextLine();
+
+        // Hewan[] dataHewan = new Hewan[jmlh];
+        System.out.println();
+        
+        System.out.println("Tuliskan data hewan");
+        for(int i = 0; i < jmlh; i++) {
+            Hewan hewan = new Hewan();
+            System.out.print("No. Pelanggan\t: ");
+            String nomorPelanggan = in.nextLine();
+            hewan.setNum(nomorPelanggan);
+            System.out.print("Nama Hewan\t: ");
+            String namaHewan = in.nextLine();
+            hewan.setAnimal(namaHewan);
+            System.out.print("Warna Hewan\t: ");
+            String warnaHewan = in.nextLine();
+            hewan.setWarna(warnaHewan);
+            System.out.print("Tahun Kelahiran\t: ");
+            String tahunKelahiran = in.nextLine();
+            hewan.setYear(tahunKelahiran);
+            System.out.print("Berapa jumlah vaksin yang telah diberikan kepada hewan ini: ");
+            int jumlahVaksin = in.nextInt();
+            hewan.setVaksin(jumlahVaksin);
+            in.nextLine();
+            System.out.println("Tipe Hewan(Ketikkan nama hewan)\t:");
+            System.out.println("1). Anjing");
+            System.out.println("2). Kucing");
+            System.out.println("3). Kelinci");
+            String pilihan = in.nextLine();
+            if(pilihan.equalsIgnoreCase("Anjing")) {
+                System.out.print("Apakah anjing ini bekas militer? (Yes/No)");
+                String militer = in.nextLine();
+                System.out.println();
+                if(militer.equalsIgnoreCase("yes") || militer.equalsIgnoreCase("y")){
+                    boolean dariMiliter = true;
+                    System.out.println("Perawatan apa yang ingin anda pilih: ");
+                    for (JenisPerawatan s : JenisPerawatan.values()) {
+                        String jenisPerawatan = s.getJenisPerawatan();
+                        System.out.println(jenisPerawatan);
+                    }
+                    String pilihJenis = in.nextLine();
+                    if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_VAKSIN.getJenisPerawatan())) {
+                    Hewan anjing = new Anjing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_VAKSIN, dariMiliter);
+                    // dataHewan[i] = anjing;
+                    linkedList.add(anjing);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_SCABIES.getJenisPerawatan())) {
+                        Hewan anjing = new Anjing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_SCABIES, dariMiliter);
+                        // dataHewan[i] = anjing;
+                        linkedList.add(anjing);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_ANTI_KUTU.getJenisPerawatan())) {
+                        Hewan anjing = new Anjing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_ANTI_KUTU, dariMiliter);
+                        // dataHewan[i] = anjing;
+                        linkedList.add(anjing);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.PEMERIKSAAN_RAWAT_INAP.getJenisPerawatan())) {
+                        Hewan anjing = new Anjing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.PEMERIKSAAN_RAWAT_INAP, dariMiliter);
+                        // dataHewan[i] = anjing;
+                        linkedList.add(anjing);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.PEMERIKSAAN_RAWAT_JALAN.getJenisPerawatan())) {
+                        Hewan anjing = new Anjing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.PEMERIKSAAN_RAWAT_JALAN, dariMiliter);
+                        // dataHewan[i] = anjing;
+                        linkedList.add(anjing);
+                    }
+                } else if(militer.equalsIgnoreCase("no") || militer.equalsIgnoreCase("n")) {
+                    boolean dariMiliter = false;
+                    System.out.println("Perawatan apa yang ingin anda pilih: ");
+                    for (JenisPerawatan s : JenisPerawatan.values()) {
+                        String jenisPerawatan = s.getJenisPerawatan();
+                        System.out.println(jenisPerawatan);
+                    }
+                    String pilihJenis = in.nextLine();
+                    if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_VAKSIN.getJenisPerawatan())) {
+                    Hewan anjing = new Anjing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_VAKSIN, dariMiliter);
+                    // dataHewan[i] = anjing;
+                    linkedList.add(anjing);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_SCABIES.getJenisPerawatan())) {
+                        Hewan anjing = new Anjing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_SCABIES, dariMiliter);
+                        // dataHewan[i] = anjing;
+                        linkedList.add(anjing);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_ANTI_KUTU.getJenisPerawatan())) {
+                        Hewan anjing = new Anjing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_ANTI_KUTU, dariMiliter);
+                        // dataHewan[i] = anjing;
+                        linkedList.add(anjing);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.PEMERIKSAAN_RAWAT_INAP.getJenisPerawatan())) {
+                        Hewan anjing = new Anjing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.PEMERIKSAAN_RAWAT_INAP, dariMiliter);
+                        // dataHewan[i] = anjing;
+                        linkedList.add(anjing);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.PEMERIKSAAN_RAWAT_JALAN.getJenisPerawatan())) {
+                        Hewan anjing = new Anjing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.PEMERIKSAAN_RAWAT_JALAN, dariMiliter);
+                        // dataHewan[i] = anjing;
+                        linkedList.add(anjing);
+                    }
+                }
+
+            } else if(pilihan.equalsIgnoreCase("Kucing")) {
+                System.out.println("Apakah kucing ini pernah dilatih? (Yes/No)");
+                String latih = in.nextLine();
+                System.out.println();
+                if(latih.equalsIgnoreCase("yes") || latih.equalsIgnoreCase("y")) {
+                    boolean telahDilatih = true;
+                    System.out.println("Perawatan apa yang ingin anda pilih: ");
+                    for (JenisPerawatan s : JenisPerawatan.values()) {
+                        String jenisPerawatan = s.getJenisPerawatan();
+                        System.out.println(jenisPerawatan);
+                    }
+                    String pilihJenis = in.nextLine();
+                        if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_VAKSIN.getJenisPerawatan())) {
+                            Hewan kucing = new Kucing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_VAKSIN, telahDilatih);
+                            // dataHewan[i] = kucing;
+                            linkedList.add(kucing);
+                        } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_SCABIES.getJenisPerawatan())) {
+                            Hewan kucing = new Kucing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_SCABIES, telahDilatih);
+                            // dataHewan[i] = kucing;
+                            linkedList.add(kucing);
+                        } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_ANTI_KUTU.getJenisPerawatan())) {
+                            Hewan kucing = new Kucing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_ANTI_KUTU, telahDilatih);
+                            // dataHewan[i] = kucing;
+                            linkedList.add(kucing);
+                        } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.PEMERIKSAAN_RAWAT_INAP.getJenisPerawatan())) {
+                            Hewan kucing = new Kucing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.PEMERIKSAAN_RAWAT_INAP, telahDilatih);
+                            // dataHewan[i] = kucing;
+                            linkedList.add(kucing);
+                        } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.PEMERIKSAAN_RAWAT_JALAN.getJenisPerawatan())) {
+                            Hewan kucing = new Kucing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.PEMERIKSAAN_RAWAT_JALAN, telahDilatih);
+                            // dataHewan[i] = kucing;
+                            linkedList.add(kucing);
+                        }
+                } else if(latih.equalsIgnoreCase("no") || latih.equalsIgnoreCase("n")) {
+                    boolean telahDilatih = false;
+                    System.out.println("Perawatan apa yang ingin anda pilih: ");
+                    for (JenisPerawatan s : JenisPerawatan.values()) {
+                        String jenisPerawatan = s.getJenisPerawatan();
+                        System.out.println(jenisPerawatan);
+                    }
+                    String pilihJenis = in.nextLine();
+                        if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_VAKSIN.getJenisPerawatan())) {
+                            Hewan kucing = new Kucing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_VAKSIN, telahDilatih);
+                            // dataHewan[i] = kucing;
+                            linkedList.add(kucing);
+                        } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_SCABIES.getJenisPerawatan())) {
+                            Hewan kucing = new Kucing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_SCABIES, telahDilatih);
+                            // dataHewan[i] = kucing;
+                            linkedList.add(kucing);
+                        } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_ANTI_KUTU.getJenisPerawatan())) {
+                            Hewan kucing = new Kucing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_ANTI_KUTU, telahDilatih);
+                            // dataHewan[i] = kucing;
+                            linkedList.add(kucing);
+                        } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.PEMERIKSAAN_RAWAT_INAP.getJenisPerawatan())) {
+                            Hewan kucing = new Kucing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.PEMERIKSAAN_RAWAT_INAP, telahDilatih);
+                            // dataHewan[i] = kucing;
+                            linkedList.add(kucing);
+                        } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.PEMERIKSAAN_RAWAT_JALAN.getJenisPerawatan())) {
+                            Hewan kucing = new Kucing(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.PEMERIKSAAN_RAWAT_JALAN, telahDilatih);
+                            // dataHewan[i] = kucing;
+                            linkedList.add(kucing);
+                        }
+                }
+            } else if(pilihan.equalsIgnoreCase("Kelinci")) {
+                System.out.println("Apakah kelinci ini bermata merah? (Yes/No)");
+                String mata = in.nextLine();
+                System.out.println();
+                if(mata.equalsIgnoreCase("yes") || mata.equalsIgnoreCase("y")) {
+                    boolean mataMerah = true;
+                    System.out.println("Perawatan apa yang ingin anda pilih: ");
+                    for (JenisPerawatan s : JenisPerawatan.values()) {
+                        String jenisPerawatan = s.getJenisPerawatan();
+                        System.out.println(jenisPerawatan);
+                    }
+                    String pilihJenis = in.nextLine();
+                    if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_VAKSIN.getJenisPerawatan())) {
+                        Hewan kelinci = new Kelinci(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_VAKSIN, mataMerah);
+                        // dataHewan[i] = kelinci;
+                        linkedList.add(kelinci);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_SCABIES.getJenisPerawatan())) {
+                        Hewan kelinci = new Kelinci(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_SCABIES, mataMerah);
+                        // dataHewan[i] = kelinci;
+                        linkedList.add(kelinci);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_ANTI_KUTU.getJenisPerawatan())) {
+                        Hewan kelinci = new Kelinci(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_ANTI_KUTU, mataMerah);
+                        // dataHewan[i] = kelinci;
+                        linkedList.add(kelinci);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.PEMERIKSAAN_RAWAT_INAP.getJenisPerawatan())) {
+                        Hewan kelinci = new Kelinci(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.PEMERIKSAAN_RAWAT_INAP, mataMerah);
+                        // dataHewan[i] = kelinci;
+                        linkedList.add(kelinci);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.PEMERIKSAAN_RAWAT_JALAN.getJenisPerawatan())) {
+                        Hewan kelinci = new Kelinci(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.PEMERIKSAAN_RAWAT_JALAN, mataMerah);
+                        // dataHewan[i] = kelinci;
+                        linkedList.add(kelinci);
+                    }
+                } else if(mata.equalsIgnoreCase("no") || mata.equalsIgnoreCase("n")) {
+                    boolean mataMerah = false;
+                    System.out.println("Perawatan apa yang ingin anda pilih: ");
+                    for (JenisPerawatan s : JenisPerawatan.values()) {
+                        String jenisPerawatan = s.getJenisPerawatan();
+                        System.out.println(jenisPerawatan);
+                    }
+                    String pilihJenis = in.nextLine();
+                    if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_VAKSIN.getJenisPerawatan())) {
+                        Hewan kelinci = new Kelinci(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_VAKSIN, mataMerah);
+                        // dataHewan[i] = kelinci;
+                        linkedList.add(kelinci);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_SCABIES.getJenisPerawatan())) {
+                        Hewan kelinci = new Kelinci(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_SCABIES, mataMerah);
+                        // dataHewan[i] = kelinci;
+                        linkedList.add(kelinci);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.SUNTIK_ANTI_KUTU.getJenisPerawatan())) {
+                        Hewan kelinci = new Kelinci(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.SUNTIK_ANTI_KUTU, mataMerah);
+                        // dataHewan[i] = kelinci;
+                        linkedList.add(kelinci);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.PEMERIKSAAN_RAWAT_INAP.getJenisPerawatan())) {
+                        Hewan kelinci = new Kelinci(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.PEMERIKSAAN_RAWAT_INAP, mataMerah);
+                        // dataHewan[i] = kelinci;
+                        linkedList.add(kelinci);
+                    } else if(pilihJenis.equalsIgnoreCase(JenisPerawatan.PEMERIKSAAN_RAWAT_JALAN.getJenisPerawatan())) {
+                        Hewan kelinci = new Kelinci(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.PEMERIKSAAN_RAWAT_JALAN, mataMerah);
+                        // dataHewan[i] = kelinci;
+                        linkedList.add(kelinci);
+                    }
+                }
+            } else {
+                Hewan dll = new Hewan(nomorPelanggan, namaHewan, warnaHewan, tahunKelahiran, pilihan, jumlahVaksin, JenisPerawatan.PEMERIKSAAN_RAWAT_INAP);
+                linkedList.add(dll);
+            }
+            System.out.println();
+        }
+
+        // for(int i = 0; i < linkedList.size(); i++) {
+        //     if(dataHewan[i] != null) {
+        //         System.out.println("*****************************************************");
+        //         dataHewan[i].printDataHewan();
+        //         dataHewan[i].infoTambahan();
+        //         System.out.println("*****************************************************");
+        //         dataHewan[i].infoAktivitas();
+        //         System.out.println();
+        //     }
+
+        // Iterator<Hewan> iterator = linkedList.iterator();
+        // while(iterator.hasNext()) {
+        //     System.out.println(iterator.next());
+
+        for(int i = 0; i < linkedList.size(); i++) {
+            Hewan hewan = linkedList.get(i);
+            System.out.println("*****************************************************");
+            hewan.printDataHewan();
+            hewan.infoTambahan();
+            System.out.println("*****************************************************");
+            hewan.infoAktivitas();
+            System.out.println();
+        }
+    }
+}
+
+
